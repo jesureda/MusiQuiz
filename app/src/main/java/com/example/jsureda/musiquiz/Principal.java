@@ -2,6 +2,8 @@ package com.example.jsureda.musiquiz;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +15,9 @@ import android.widget.Toast;
 
 public class Principal extends AppCompatActivity {
     boolean exit = false;
-    ImageView img;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+    FragLogo logo = new FragLogo();
     ImageButton btnSalir, btnRanking, btnAjustes;
     Button btnJugar;
 
@@ -28,13 +32,32 @@ public class Principal extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Ajustes.class);
                 startActivity(intent);
+            }
+        });
+        btnRanking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Ranking.class);
+                startActivity(intent);
+            }
+        });
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
+                System.exit(0);
             }
         });
     }
     private void inicializarGUI()
     {
-        img = (ImageView) findViewById(R.id.imgPrincipal);
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", R.drawable.musiquiz);
+        logo.setArguments(bundle);
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.frLogo, logo);
+        fragmentTransaction.commit();
         btnSalir = (ImageButton) findViewById(R.id.imgBtnSalir);
         btnRanking = (ImageButton) findViewById(R.id.imgBtnRanking);
         btnAjustes = (ImageButton) findViewById(R.id.imgBtnAjustes);
@@ -45,6 +68,7 @@ public class Principal extends AppCompatActivity {
     public void onBackPressed() {
         if (exit) {
             finish(); // finish activity
+            System.exit(0);
         } else {
             Toast.makeText(this, R.string.toastSalir,
                     Toast.LENGTH_SHORT).show();

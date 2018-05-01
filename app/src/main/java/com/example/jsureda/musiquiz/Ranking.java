@@ -6,13 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Ajustes extends AppCompatActivity {
-
+public class Ranking extends AppCompatActivity {
     FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajustes);
+        setContentView(R.layout.activity_ranking);
         inicicializarGUI();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,6 +24,6 @@ public class Ajustes extends AppCompatActivity {
     }
     private void inicicializarGUI()
     {
-        fab=(FloatingActionButton)findViewById(R.id.fabAjuste);
+        fab=(FloatingActionButton)findViewById(R.id.fabRanking);
     }
 }

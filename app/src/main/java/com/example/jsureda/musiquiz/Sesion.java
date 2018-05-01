@@ -1,6 +1,8 @@
 package com.example.jsureda.musiquiz;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Sesion extends AppCompatActivity {
-    ImageView img;
+    FragmentManager fragmentManager;
+    FragmentTransaction fragmentTransaction;
+    FragLogo logo = new FragLogo();
     EditText txtUsuario, txtClave;
     Button btnEntrar;
     @Override
@@ -31,7 +35,13 @@ public class Sesion extends AppCompatActivity {
     }
     private void inicializarGUI()
     {
-        img = (ImageView) findViewById(R.id.imgSesion);
+        Bundle bundle = new Bundle();
+        bundle.putInt("id", R.drawable.musiquiz);
+        logo.setArguments(bundle);
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.frLogo, logo);
+        fragmentTransaction.commit();
         txtUsuario = (EditText) findViewById(R.id.txtUserSesion);
         txtClave = (EditText) findViewById(R.id.txtClaveSesion);
         btnEntrar = (Button) findViewById(R.id.btnEntrarSesion);

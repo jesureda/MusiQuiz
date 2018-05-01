@@ -13,12 +13,12 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp">
 
-        <ImageView
-            android:id="@+id/imgCarga"
+        <fragment
+            android:id="@+id/frLogo"
+            android:name="com.example.jsureda.musiquiz.FragLogo"
             android:layout_width="wrap_content"
-            android:layout_height="250dp"
-            android:layout_marginTop="75dp"
-            app:srcCompat="@drawable/musiquizcarga" />
+            android:layout_height="200dp"
+            android:layout_marginTop="75dp" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -31,10 +31,7 @@
             android:indeterminateTint="@color/colorWhite"
             android:indeterminateTintMode="src_atop"
             tools:layout_editor_absoluteX="168dp"
-            tools:layout_editor_absoluteY="337dp"
-
-
-            />
+            tools:layout_editor_absoluteY="337dp"            />
 
     </RelativeLayout>
 

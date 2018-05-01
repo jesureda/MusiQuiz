@@ -20,7 +20,9 @@
         </activity>
         <activity android:name=".Sesion" />
         <activity android:name=".Principal" />
-        <activity android:name=".Ajustes"></activity>
+        <activity android:name=".Ajustes" />
+        <activity android:name=".Ranking" />
+        <activity android:name=".Niveles"></activity>
     </application>
 
 </manifest>
