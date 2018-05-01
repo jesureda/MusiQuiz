@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MusiQuiz</string>
+    <string name="labelUsuario">Usuario: </string>
+    <string name="labelClave">Clave: </string>
+    <string name="labelEntrar">Entrar</string>
+    <string name="labelJugar">Jugar</string>
+    <string name="labelEfSonido">Efectos de sonido</string>
+    <string name="labelIdioma">Idioma </string>
+    <string name="labelTema">Temas</string>
+    <string name="labelRanking">Ranking</string>
+    <string name="toastSalir">Vuelva a presionar el botón para salir</string>
+    <string name="title_activity_ajustes">Ajustes</string>
+
+</resources>
