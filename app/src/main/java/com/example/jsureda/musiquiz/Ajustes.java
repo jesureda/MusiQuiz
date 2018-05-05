@@ -1,12 +1,13 @@
 package com.example.jsureda.musiquiz;
 
 import android.content.Intent;
+import android.preference.PreferenceActivity;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class Ajustes extends AppCompatActivity {
+public class Ajustes extends PreferenceActivity {
 
     FloatingActionButton fab;
     @Override

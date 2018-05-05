@@ -48,6 +48,13 @@ public class Principal extends AppCompatActivity {
                 System.exit(0);
             }
         });
+        btnJugar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Niveles.class);
+                startActivity(intent);
+            }
+        });
     }
     private void inicializarGUI()
     {
