@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class opciones extends PreferenceFragment {
+public class Opciones extends PreferenceFragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -6,31 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".Niveles">
 
-    <LinearLayout
+    <ListView
+        android:id="@+id/listNivel"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <fragment
-            android:id="@+id/frNivel1"
-            android:name="com.example.jsureda.musiquiz.FragNivel"
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
-        <fragment
-            android:id="@+id/frNivel2"
-            android:name="com.example.jsureda.musiquiz.FragNivel"
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
-        <fragment
-            android:id="@+id/frNivel3"
-            android:name="com.example.jsureda.musiquiz.FragNivel"
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
-        <fragment
-            android:id="@+id/frNivel4"
-            android:name="com.example.jsureda.musiquiz.FragNivel"
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
-    </LinearLayout>
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </android.support.constraint.ConstraintLayout>

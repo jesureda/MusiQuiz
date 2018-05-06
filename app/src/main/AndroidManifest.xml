@@ -22,7 +22,8 @@
         <activity android:name=".Principal" />
         <activity android:name=".Ajustes" />
         <activity android:name=".Ranking" />
-        <activity android:name=".Niveles"></activity>
+        <activity android:name=".Niveles" />
+        <activity android:name=".Preguntas"></activity>
     </application>
 
 </manifest>
