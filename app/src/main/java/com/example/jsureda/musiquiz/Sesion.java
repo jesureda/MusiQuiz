@@ -1,6 +1,8 @@
 package com.example.jsureda.musiquiz;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Sesion extends AppCompatActivity {
+    private SharedPreferences prefs;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     FragLogo logo = new FragLogo();
@@ -27,9 +30,16 @@ public class Sesion extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Principal.class);
-                startActivity(intent);
-                finish();
+                if (!txtUsuario.equals("")){
+                    prefs = PreferenceManager
+                            .getDefaultSharedPreferences(Sesion.this);
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putBoolean("UserLoggedIn", true);
+                    editor.commit();
+                    Intent intent = new Intent(getApplicationContext(), Principal.class);
+                    startActivity(intent);
+                    finish();
+                };
             }
         });
     }
@@ -45,6 +55,7 @@ public class Sesion extends AppCompatActivity {
         txtUsuario = (EditText) findViewById(R.id.txtUserSesion);
         txtClave = (EditText) findViewById(R.id.txtClaveSesion);
         btnEntrar = (Button) findViewById(R.id.btnEntrarSesion);
+        txtClave.setEnabled(false);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.example.jsureda.musiquiz;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.content.Intent;
@@ -14,6 +16,7 @@ public class Carga extends AppCompatActivity {
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     FragLogo logo = new FragLogo();
+    private SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -24,9 +27,20 @@ public class Carga extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(Carga.this, Sesion.class);
-                startActivity(intent);
-                finish();
+
+                prefs = PreferenceManager
+                        .getDefaultSharedPreferences(getApplicationContext());
+                if (!prefs.getBoolean("UserLoggedIn", false)) {
+
+                    Intent intent = new Intent(Carga.this, Sesion.class);
+                    startActivity(intent);
+                    finish();
+
+                } else {
+                    Intent intent = new Intent(Carga.this, Principal.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }, SPLASH_TIME_OUT);
     }
