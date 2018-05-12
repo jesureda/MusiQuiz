@@ -8,9 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Principal extends AppCompatActivity {
@@ -51,7 +49,7 @@ public class Principal extends AppCompatActivity {
         btnJugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Niveles.class);
+                Intent intent = new Intent(getApplicationContext(), ListaNiveles.class);
                 startActivity(intent);
             }
         });

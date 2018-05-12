@@ -1,22 +1,31 @@
 package com.example.jsureda.musiquiz;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import com.example.jsureda.musiquiz.TablaNivel.Columna;
+import java.util.UUID;
+
 public class Nivel {
 
-    private String nombre;
-    private int id,orden;
-    private boolean bloqueado;
+    private String  nombre;
+    private Integer id, orden, bloqueado, progreso;
 
     public Nivel()
     {
         super();
     }
-    public Nivel(String nombre, int orden, boolean bloqueado)
+
+    public Nivel(String nombre, Integer orden, Integer bloqueado, Integer progreso)
     {
-        super();
         this.nombre=nombre;
         this.orden=orden;
         this.bloqueado=bloqueado;
+        this.progreso=progreso;
     }
+
+    public Integer getId() {return id;}
+
+    public void setId(Integer id) {this.id = id;}
 
     public String getNombre() {
         return nombre;
@@ -26,27 +35,28 @@ public class Nivel {
         this.nombre = nombre;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getOrden() {
+    public Integer getOrden() {
         return orden;
     }
 
-    public void setOrden(int orden) {
+    public void setOrden(Integer orden) {
         this.orden = orden;
     }
 
-    public boolean isBloqueado() {
+    public Integer getBloqueado() {
         return bloqueado;
     }
 
-    public void setBloqueado(boolean bloqueado) {
+    public void setBloqueado(Integer bloqueado) {
         this.bloqueado = bloqueado;
     }
+
+    public Integer getProgreso() {
+        return progreso;
+    }
+
+    public void setProgreso(Integer progreso) {
+        this.progreso = progreso;
+    }
+
 }

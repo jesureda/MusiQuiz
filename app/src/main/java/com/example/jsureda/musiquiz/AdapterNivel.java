@@ -15,11 +15,11 @@ import java.util.ArrayList;
 public class AdapterNivel extends BaseAdapter{
 
     protected Activity activity;
-    protected ArrayList<Nivel> items;
+    protected ArrayList<Nivel> items=new ArrayList<>();
 
     public AdapterNivel (Activity activity, ArrayList<Nivel> items) {
         this.activity = activity;
-        this.items = items;
+        this.items=items;
     }
     @Override
     public int getCount() {
@@ -56,19 +56,18 @@ public class AdapterNivel extends BaseAdapter{
             v = inf.inflate(R.layout.item_nivel, null);
         }
 
-        Nivel dir = items.get(position);
+        Nivel niv = items.get(position);
 
         TextView title = (TextView) v.findViewById(R.id.txtNivel);
-        title.setText(dir.getNombre());
+        title.setText(niv.getNombre());
 
         ProgressBar barra = (ProgressBar) v.findViewById(R.id.pBarNivel);
-        barra.setProgress(dir.getOrden());
+        barra.setProgress(niv.getProgreso());
 
         ImageView imagen = (ImageView) v.findViewById(R.id.imgViewNivel);
-        if (dir.isBloqueado())
+        if (niv.getBloqueado()>0)
         { imagen.setImageResource(R.drawable.ic_secure);
         }else { imagen.setImageResource(R.drawable.ic_partial_secure);}
-
 
         return v;
     }

@@ -1,8 +1,6 @@
 package com.example.jsureda.musiquiz;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,20 +9,23 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class Niveles extends AppCompatActivity {
+public class ListaNiveles extends AppCompatActivity {
 
-    ArrayList<Nivel> levels = new ArrayList<Nivel>();
-    ListView lv;
-    AdapterNivel adapter;
+    private ArrayList<Nivel> levels = new ArrayList<>();
+    private ListView lista;
+    private AdapterNivel adapter;
+    private NivelSQLite nivSQLite=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_niveles);
-        rellenarArray(levels);
-        lv = (ListView) findViewById(R.id.listNivel);
+        nivSQLite = new NivelSQLite(this);
+        //rellenarArray(levels);
+        levels=nivSQLite.listaNiveles(4);
+        lista = (ListView) findViewById(R.id.listNivel);
         adapter = new AdapterNivel(this, levels);
-        lv.setAdapter(adapter);
-        lv.setOnItemClickListener(
+        lista.setAdapter(adapter);
+        lista.setOnItemClickListener(
 
                 new AdapterView.OnItemClickListener() {
                     public void onItemClick(
@@ -40,11 +41,4 @@ public class Niveles extends AppCompatActivity {
         );
     }
 
-    public void rellenarArray( ArrayList<Nivel> levels) {
-        levels.add(0,(new Nivel("Nivel 1", 1, false)));
-        levels.add(1,(new Nivel("Nivel 2", 2, true)));
-        levels.add(2,(new Nivel("Nivel 3", 3, true)));
-        levels.add(3,(new Nivel("Nivel 4", 4, true)));
-
-    }
 }
