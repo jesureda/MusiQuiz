@@ -1,34 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/labelEfSonido">
+    <PreferenceCategory android:title="@string/labelEfSonido"
+        android:layout="@layout/setting_text">
 
         <SwitchPreference
             android:defaultValue="true"
             android:key="pref1"
-            android:title="@string/sonido" />
+            android:title="@string/sonido"
+            />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/labelIdioma">
+    <PreferenceCategory android:title="@string/labelIdioma"
+        android:layout="@layout/setting_text">
 
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="check_box_preference_1"
-            android:title="@string/idiomaA" />
+            android:title="@string/idiomaA"
+            />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="check_box_preference_2"
-            android:title="@string/idiomaB" />
+            android:title="@string/idiomaB"
+            />
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/labelTema">
+    <PreferenceCategory android:title="@string/labelTema"
+        android:layout="@layout/setting_text">
 
         <CheckBoxPreference
             android:defaultValue="true"
             android:disableDependentsState="true"
             android:key="check_box_preference_3"
-            android:title="@string/temaA" />
+            android:title="@string/temaA"
+            />
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="check_box_preference_4"
-            android:title="@string/temaB" />
+            android:title="@string/temaB"
+           />
     </PreferenceCategory>
 </PreferenceScreen>

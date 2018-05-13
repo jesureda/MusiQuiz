@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setting_text"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@android:id/title"
+        style="@style/Label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        tools:layout_editor_absoluteX="10dp"
+        android:paddingTop="20dp"
+        android:layout_marginLeft="15dp"
+        >
+
+    </TextView>
+</android.support.constraint.ConstraintLayout>

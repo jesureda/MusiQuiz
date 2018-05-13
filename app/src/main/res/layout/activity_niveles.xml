@@ -4,13 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ListaNiveles">
+    tools:context=".ListaNiveles"
+    android:background="@color/colorPrimary"
+    >
 
-    <ListView
-        android:id="@+id/listNivel"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:layout_marginTop="5dp">
+
+        <ListView
+            android:id="@+id/listNivel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

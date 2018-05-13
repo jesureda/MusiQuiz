@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -18,13 +19,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Preguntas extends AppCompatActivity implements FragBotones.OnFragmentInteractionListener {
-    TextView txtTiempo; EditText player;
+    TextView txtTiempo; ImageButton player;
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
     FragBotones botones = new FragBotones();
     ArrayList <Pregunta> questions =new ArrayList<>();
     private DatabaseHelper pregSQLite=null;
     int nivel, progresoInicial, contador=0,progreso=0;
+    MediaPlayer media;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,8 +50,8 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
         fragmentTransaction.commit();
 
         txtTiempo = (TextView)findViewById(R.id.txtTime);
-        player =(EditText) findViewById(R.id.imageButton) ;
-        player.setText(questions.get(contador).getCorrecta());
+        player =(ImageButton) findViewById(R.id.imageButton) ;
+
 
         new CountDownTimer(30000, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -63,7 +65,7 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
 
         String mp3File = "raw/survivor_eyeofthetiger.mp3";
         AssetManager assetMan = getAssets();
-        MediaPlayer media = new MediaPlayer();
+        media = new MediaPlayer();
         FileInputStream mp3Stream = null;
         try {
             mp3Stream = assetMan.openFd(mp3File).createInputStream();
@@ -73,6 +75,13 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
             e.printStackTrace();
         }
         media.start();
+        player.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                media.start();
+            }
+        });
+
     }
 
     public void onFragmentInteraction(String resultado) {

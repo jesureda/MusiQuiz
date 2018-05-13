@@ -1,9 +1,5 @@
 package com.example.jsureda.musiquiz;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import com.example.jsureda.musiquiz.TablaNivel.Columna;
-import java.util.UUID;
 
 public class Nivel {
 
