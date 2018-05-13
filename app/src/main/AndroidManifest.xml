@@ -23,7 +23,7 @@
         <activity android:name=".Ajustes" />
         <activity android:name=".Ranking" />
         <activity android:name=".ListaNiveles" />
-        <activity android:name=".Preguntas"></activity>
+        <activity android:name=".Preguntas"/>
     </application>
 
 </manifest>

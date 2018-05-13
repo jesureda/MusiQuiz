@@ -12,12 +12,12 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="16dp">
 
-        <fragment
-            android:id="@+id/frLogo"
-            android:name="com.example.jsureda.musiquiz.FragLogo"
-            android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/imgPrincipal"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/musiquiz" />
 
         <Button
             android:id="@+id/btnJugar"

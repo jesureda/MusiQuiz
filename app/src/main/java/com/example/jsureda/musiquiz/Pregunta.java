@@ -1,6 +1,10 @@
 package com.example.jsureda.musiquiz;
 
-public class Pregunta {
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Pregunta implements Serializable{
     private String  enunciado, refAudio, respuestaA, respuestaB, respuestaC, respuestaD, correcta;
     private Integer id, nivel;
 

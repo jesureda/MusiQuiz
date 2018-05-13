@@ -17,9 +17,6 @@ import android.widget.TextView;
 
 public class Sesion extends AppCompatActivity {
     private SharedPreferences prefs;
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-    FragLogo logo = new FragLogo();
     EditText txtUsuario, txtClave;
     Button btnEntrar;
     @Override
@@ -45,17 +42,9 @@ public class Sesion extends AppCompatActivity {
     }
     private void inicializarGUI()
     {
-        Bundle bundle = new Bundle();
-        bundle.putInt("id", R.drawable.musiquiz);
-        logo.setArguments(bundle);
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.frLogo, logo);
-        fragmentTransaction.commit();
         txtUsuario = (EditText) findViewById(R.id.txtUserSesion);
         txtClave = (EditText) findViewById(R.id.txtClaveSesion);
         btnEntrar = (Button) findViewById(R.id.btnEntrarSesion);
         txtClave.setEnabled(false);
     }
-
 }

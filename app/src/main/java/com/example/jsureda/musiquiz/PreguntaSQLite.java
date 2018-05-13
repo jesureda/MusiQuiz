@@ -16,17 +16,18 @@ public class PreguntaSQLite extends SQLiteOpenHelper{
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql ="CREATE TABLE preguntas (";
-        sql += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
-        sql += "enunciado TEXT,";
-        sql += "refAudio TEXT,";
-        sql += "respuestaA TEXT,";
-        sql += "respuestaB TEXT,";
-        sql += "respuestaC TEXT,";
-        sql += "respuestaD TEXT,";
-        sql += "correcta TEXT,";
-        sql += "nivel INTEGER,";
-        sql += "FOREIGN KEY (nivel) REFERENCES niveles(_id));";
+//        String sql ="CREATE TABLE preguntas (";
+//        sql += "_id INTEGER PRIMARY KEY AUTOINCREMENT,";
+//        sql += "enunciado TEXT,";
+//        sql += "refAudio TEXT,";
+//        sql += "respuestaA TEXT,";
+//        sql += "respuestaB TEXT,";
+//        sql += "respuestaC TEXT,";
+//        sql += "respuestaD TEXT,";
+//        sql += "correcta TEXT,";
+//        sql += "nivel INTEGER,";
+//        sql += "FOREIGN KEY (nivel) REFERENCES niveles(_id));";
+        String sql="CREATE TABLE `preguntas` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT, `enunciado` TEXT, `refAudio` TEXT, `respuestaA` TEXT, `respuestaB` TEXT, `respuestaC` TEXT, `respuestaD` TEXT, `respuestaCorrecta` TEXT, `nivelFK` INTEGER);";
         db.execSQL(sql);
         insertarPreguntas(db);
     }
@@ -51,10 +52,11 @@ public class PreguntaSQLite extends SQLiteOpenHelper{
         //db.close();
     }
 
-    public ArrayList<Pregunta> listaPreguntas(int cantidad) {
+    public ArrayList<Pregunta> listaPreguntas(int cantidad, int nivel) {
         ArrayList<Pregunta> preguntas = new ArrayList<>();
         String sql = "SELECT * FROM preguntas ";
-        sql+= "ORDER BY _id ASC ";
+        sql+= "WHERE nivel="+nivel;
+        sql+= " ORDER BY _id ASC ";
         sql+= "LIMIT " + cantidad;
         // Obtenemos la base de datos en solo lectura
         SQLiteDatabase db = getReadableDatabase();

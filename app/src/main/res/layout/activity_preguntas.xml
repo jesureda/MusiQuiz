@@ -8,17 +8,18 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="113dp">
 
         <TextView
             android:id="@+id/txtTime"
             style="@style/Label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="50dp"
-            android:text="TextView" />
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp" />
 
         <fragment
             android:id="@+id/frBotones"
@@ -28,13 +29,16 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="220dp" />
 
-        <ImageButton
+        <EditText
             android:id="@+id/imageButton"
-            android:layout_width="326dp"
-            android:layout_height="87dp"
+            android:layout_width="325dp"
+            android:layout_height="86dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="100dp"
-            app:srcCompat="@android:color/holo_green_light" />
+            android:layout_marginTop="108dp"
+            android:background="@android:color/holo_orange_dark"
+            android:ems="10"
+            android:gravity="center"
+            android:inputType="textPersonName" />
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

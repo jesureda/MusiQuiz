@@ -68,12 +68,14 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="54dp"
             android:text="@string/labelEntrar" />
-        <fragment
-            android:id="@+id/frLogo"
-            android:name="com.example.jsureda.musiquiz.FragLogo"
-            android:layout_width="wrap_content"
+
+        <ImageView
+            android:id="@+id/imgSesion"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_marginTop="50dp" />
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/musiquiz" />
+
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

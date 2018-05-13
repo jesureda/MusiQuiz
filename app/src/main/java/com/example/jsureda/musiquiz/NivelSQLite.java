@@ -23,7 +23,7 @@ public class NivelSQLite extends SQLiteOpenHelper {
         sql += "nombre TEXT,";
         sql += "orden INTEGER,";
         sql += "bloqueado INTEGER,";
-        sql += "progreso INTEGER)";
+        sql += "progreso INTEGER);";
         db.execSQL(sql);
         insertarNiveles(db);
     }

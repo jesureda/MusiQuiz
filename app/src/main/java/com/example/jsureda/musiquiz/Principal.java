@@ -13,12 +13,8 @@ import android.widget.Toast;
 
 public class Principal extends AppCompatActivity {
     boolean exit = false;
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-    FragLogo logo = new FragLogo();
     ImageButton btnSalir, btnRanking, btnAjustes;
     Button btnJugar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,13 +52,6 @@ public class Principal extends AppCompatActivity {
     }
     private void inicializarGUI()
     {
-        Bundle bundle = new Bundle();
-        bundle.putInt("id", R.drawable.musiquiz);
-        logo.setArguments(bundle);
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.frLogo, logo);
-        fragmentTransaction.commit();
         btnSalir = (ImageButton) findViewById(R.id.imgBtnSalir);
         btnRanking = (ImageButton) findViewById(R.id.imgBtnRanking);
         btnAjustes = (ImageButton) findViewById(R.id.imgBtnAjustes);

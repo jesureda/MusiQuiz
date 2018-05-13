@@ -20,36 +20,31 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="50dp"
-            android:gravity="center"
-            android:text="Indica el título de la canción" />
+            android:gravity="center" />
 
         <Button
             android:id="@+id/btnResA"
             style="@style/Boton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thunderstruck" />
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnResB"
             style="@style/Boton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Thunder" />
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnResC"
             style="@style/Boton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Wonderwall" />
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btnResD"
             style="@style/Boton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="By the way" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </FrameLayout>

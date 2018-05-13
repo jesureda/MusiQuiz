@@ -9,20 +9,17 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
 
 public class Carga extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 1500;
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-    FragLogo logo = new FragLogo();
     private SharedPreferences prefs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carga);
-        inicializarGUI();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -43,15 +40,5 @@ public class Carga extends AppCompatActivity {
                 }
             }
         }, SPLASH_TIME_OUT);
-    }
-    private void inicializarGUI()
-    {
-        Bundle bundle = new Bundle();
-        bundle.putInt("id", R.drawable.musiquizcarga);
-        logo.setArguments(bundle);
-        fragmentManager = getSupportFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.frLogo, logo);
-        fragmentTransaction.commit();
     }
 }

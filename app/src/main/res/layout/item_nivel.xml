@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#e9eced">
+
+        <TextView
+            android:id="@+id/txtNivel"
+            style="@style/Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgViewNivel"
+            android:layout_centerHorizontal="true"
+            android:text="Nivel X" />
+
+        <ProgressBar
+            android:id="@+id/pBarNivel"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="22dp" />
+
+        <ImageView
+            android:id="@+id/imgViewNivel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="89dp"
+            android:layout_marginTop="18dp"
+            app:srcCompat="@android:drawable/ic_secure" />
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>
