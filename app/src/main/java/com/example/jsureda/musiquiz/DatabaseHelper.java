@@ -45,7 +45,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         crearPreguntas += "respuestaC TEXT,";
         crearPreguntas += "respuestaD TEXT,";
         crearPreguntas += "correcta TEXT,";
-        crearPreguntas += "nivel INTEGER);";
+        crearPreguntas += "nivel INTEGER,";
+        crearPreguntas += "FOREIGN KEY(nivel) REFERENCES niveles(_id));";
 
        // crearPreguntas="CREATE TABLE `preguntas` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT, `enunciado` TEXT, `refAudio` TEXT, `respuestaA` TEXT, `respuestaB` TEXT, `respuestaC` TEXT, `respuestaD` TEXT, `respuestaCorrecta` TEXT, `nivelFK` INTEGER);";
         // creating required tables
@@ -78,16 +79,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void insertarPreguntas(SQLiteDatabase db) {
         String sql   = "INSERT INTO preguntas(enunciado,refAudio,respuestaA,respuestaB,respuestaC,respuestaD,correcta,nivel)";
-        sql  += "VALUES ('Indica el título de la canción','survivor_eyeofthetiger.mp3','Californication','No Giving Up','No Roads Left','Eye Of The Tiger','Eye Of The Tiger',1),";
-        sql  += "('¿De qué película es esta banda sonora?','url','asdf','asdf','asdf','asdf','asdf',1),";
-        sql  += "('¿A qué grupo pertenece esta canción?','url','asdf','asdf','asdf','asdf','asdf',1),";
-        sql  += "('Indica el título de la canción','url','asdf','asdf','asdf','asdf','asdf',1),";
-        sql  += "('¿A qué grupo pertenece esta canción?','url','asdf','asdf','asdf','asdf','asdf',1),";
-        sql  += "('¿De qué película es esta banda sonora?','url','asdf','asdf','asdf','asdf','asdf',1),";
-        sql  += "('Indica el título de la canción','url','asdf','asdf','asdf','asdf','asdf',1),";
-        sql  += "('¿De qué película es esta banda sonora?','url','asdf','asdf','asdf','asdf','asdf',1),";
-        sql  += "('Indica el título de la canción','url','asdf','asdf','asdf','asdf','asdf',1),";
-        sql  += "('¿A qué grupo pertenece esta canción?','url','asdf','asdf','asdf','asdf','asdf',1);";
+        sql  += "VALUES ('Indica el título de la canción','holiday.mp3','Holiday','No Giving Up','No Roads Left','Still Waiting','Holiday',1),";
+        sql  += "('¿En qué película suena esta canción?','timearechanging.mp3','Sin City ','Capitán América','Watchmen','Terminator','Watchmen',1),";
+        sql  += "('¿A qué grupo pertenece esta canción?','smellsliketeen.mp3','Nirvana','The Beatles','Rolling Stones','Abba','Nirvana',1),";
+        sql  += "('Indica el título de la canción','sweetchild.mp3','Hell Bells','Losing My Religion','Wake Up','Sweet Child O Mine','Sweet Child O Mine',1),";
+        sql  += "('¿A qué grupo pertenece esta canción?','harderbetter.mp3','Imagine Dragons','Artic Monkeys','Daft Punk','Two Steps From Hell','Daft Punk',1),";
+        sql  += "('¿De qué película es esta banda sonora?','infinitywar.mp3','Batman','The Punisher','Deadpool','Avengers','Avengers',1),";
+        sql  += "('Indica el título de la canción','avici_wakemeup.mp3','The Gambler','Wonderwall','Wake Me Up','Right Round','Wake Me Up',1),";
+        sql  += "('¿De qué película es esta banda sonora?','survivor_eyeofthetiger.mp3','Depredador','Warrior','Rocky','Rambo','Rocky',1),";
+        sql  += "('Indica el título de la canción','loverocknroll.mp3','Hot Blooded','Rock Of Ages','Gasoline','I Love Rock N Roll','I Love Rock N Roll',1),";
+        sql  += "('¿A qué grupo pertenece esta canción?','houserisingsun.mp3','Gorillaz','The Animals','Bee Gees','Darkseed','The Animals',1);";
 
         db.execSQL(sql);
         //db.close();

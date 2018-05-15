@@ -24,14 +24,6 @@ public class FragBotones extends Fragment {
     Button resA, resB, resC, resD;
     public FragBotones() {
     }
-/*    public static FragBotones newInstance(String mId) {
-        // Este método lo implementamos para generar una instancia del fragmento a partir de un id de contacto
-        FragBotones fragment = new FragBotones();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, mId);
-        fragment.setArguments(args);
-        return fragment;
-    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
