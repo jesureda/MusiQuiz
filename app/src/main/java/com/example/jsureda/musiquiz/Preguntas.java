@@ -1,10 +1,12 @@
 package com.example.jsureda.musiquiz;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -28,8 +30,9 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
     ArrayList<Pregunta> questions = new ArrayList<>();
     private DatabaseHelper pregSQLite = null;
     int nivel, progresoInicial, contador = 0, progreso = 0;
-    MediaPlayer media=null;
+    MediaPlayer media = null;
     CountDownTimer tiempo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,23 +49,28 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
         player.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                media.stop(); media.start();
+                media.seekTo(0);
+                media.start();
             }
         });
     }
 
     public void onFragmentInteraction(String resultado) {
         if (resultado.equals(questions.get(contador).getCorrecta())) {
-            Toast.makeText(this, "Has acertado hulio", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "Has acertado hulio", Toast.LENGTH_LONG).show();
             progreso++;
-            contador++;
-            media.stop();
-            tiempo.cancel();
+        }
+        contador++;
+        media.stop();
+        tiempo.cancel();
+        if (contador < 10) {
             temporizador();
             openFragment();
-        } else if (!resultado.equals(questions.get(contador).getCorrecta())) {
-            Toast.makeText(this, "Un mojón pa ti", Toast.LENGTH_LONG).show();
-            contador++;
+        } else {
+            Intent intent = new Intent(Preguntas.this, Resumen.class);
+            intent.putExtra("prog", progreso);
+            startActivity(intent);
+            finish();
         }
     }
 
@@ -81,15 +89,15 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
         bundle.putString("resB", questions.get(contador).getRespuestaB());
         bundle.putString("resC", questions.get(contador).getRespuestaC());
         bundle.putString("resD", questions.get(contador).getRespuestaD());
+        bundle.putString("resCorr", questions.get(contador).getCorrecta());
         botones.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frBotones, botones);
         transaction.commit();
-        playSound(this,questions.get(contador).getRefAudio());
+        playSound(this, questions.get(contador).getRefAudio());
     }
 
-    private void temporizador()
-    {
+    private void temporizador() {
         tiempo = new CountDownTimer(30000, 1000) {
             public void onTick(long millisUntilFinished) {
                 txtTiempo.setText("Tiempo restante: " + millisUntilFinished / 1000);

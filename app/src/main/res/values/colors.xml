@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#930815</color>
     <color name="colorAccent">#000000</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorAcierto">#1b7e1f</color>
+    <color name="colorFallo">#930815</color>
+
 </resources>
