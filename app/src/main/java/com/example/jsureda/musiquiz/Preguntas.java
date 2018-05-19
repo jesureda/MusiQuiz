@@ -37,10 +37,9 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preguntas);
-        nivel = getIntent().getIntExtra("nivel", 1);
+        nivel = getIntent().getIntExtra("nivelSel", 0);
         progresoInicial = getIntent().getIntExtra("progresoInicial", 0);
         pregSQLite = new DatabaseHelper(this);
-        nivel = 1;
         questions = pregSQLite.listaPreguntas(10, nivel);
         temporizador();
         openFragment();
@@ -68,7 +67,9 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
             openFragment();
         } else {
             Intent intent = new Intent(Preguntas.this, Resumen.class);
-            intent.putExtra("prog", progreso);
+            intent.putExtra("progresoRonda", progreso);
+            intent.putExtra("nivelSel", nivel);
+            intent.putExtra("progresoInicial", progresoInicial);
             startActivity(intent);
             finish();
         }

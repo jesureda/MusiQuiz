@@ -62,7 +62,7 @@ public class AdapterNivel extends BaseAdapter{
         title.setText(niv.getNombre());
 
         ProgressBar barra = (ProgressBar) v.findViewById(R.id.pBarNivel);
-        barra.setProgress(niv.getProgreso());
+        barra.setProgress(niv.getProgreso()*10);
 
         ImageView imagen = (ImageView) v.findViewById(R.id.imgViewNivel);
         if (niv.getBloqueado()>0)

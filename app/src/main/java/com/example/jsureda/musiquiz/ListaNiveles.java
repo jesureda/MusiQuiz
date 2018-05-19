@@ -35,7 +35,7 @@ public class ListaNiveles extends AppCompatActivity {
                             int nivelSeleccionado = levels.get(position).getOrden();
                             int progreso = levels.get(position).getProgreso();
                             Intent intencion = new Intent(getApplicationContext(), Preguntas.class);
-                            intencion.putExtra("nivel", nivelSeleccionado);
+                            intencion.putExtra("nivelSel", nivelSeleccionado);
                             intencion.putExtra("progresoInicial", progreso);
                             startActivity(intencion);
                             finish();
