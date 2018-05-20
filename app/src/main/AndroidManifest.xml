@@ -26,7 +26,8 @@
         <activity android:name=".Ranking" />
         <activity android:name=".ListaNiveles" />
         <activity android:name=".Preguntas" />
-        <activity android:name=".Resumen"></activity>
+        <activity android:name=".Resumen" />
+        <activity android:name=".Aniadir"></activity>
     </application>
 
 </manifest>

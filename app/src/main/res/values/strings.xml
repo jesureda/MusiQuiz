@@ -19,5 +19,6 @@
     <string name="idiomaB">Inglés</string>
     <string name="temaA">Azul </string>
     <string name="temaB">Pistacho </string>
-
+    <string name="superado">¡Nivel Superado!</string>
+    <string name="noSuperado">Nivel no superado</string>
 </resources>

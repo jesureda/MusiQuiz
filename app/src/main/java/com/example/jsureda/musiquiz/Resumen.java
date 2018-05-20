@@ -11,12 +11,15 @@ public class Resumen extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 3000;
     int progresoRonda, progresoInicial, nivel;
     private DatabaseHelper resSQLite=null;
+    TextView txtAcierto,txtFallo,txtResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resumen);
-        TextView txtProgreso = (TextView) findViewById(R.id.txtProgre);
+        txtAcierto = (TextView) findViewById(R.id.txtAcierto);
+        txtFallo = (TextView) findViewById(R.id.txtFallo);
+        txtResult = (TextView) findViewById(R.id.txtResultado);
         resSQLite = new DatabaseHelper(this);
         nivel = getIntent().getIntExtra("nivelSel", 0);
         progresoInicial=getIntent().getIntExtra("progresoInicial", 0);
@@ -28,14 +31,20 @@ public class Resumen extends AppCompatActivity {
             if ((progresoRonda>7) && (nivel<5)){
                 nivel++;
                 resSQLite.actualizarNivel(nivel, 0, 0);
+                txtResult.setText(R.string.superado);
+            }
+            else{
+                txtResult.setText(R.string.noSuperado);
             }
         }
 
-        txtProgreso.setText("Aciertos: "+progresoRonda);
+        txtAcierto.setText(progresoRonda+" Aciertos");
+        txtFallo.setText((10-progresoRonda)+" Fallos");
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                    Intent intent = new Intent(Resumen.this, Principal.class);
+                    Intent intent = new Intent(Resumen.this, ListaNiveles.class);
                     startActivity(intent);
                     finish();
             }

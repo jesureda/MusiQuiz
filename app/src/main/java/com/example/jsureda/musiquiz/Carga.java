@@ -33,7 +33,7 @@ public class Carga extends AppCompatActivity {
                     startActivity(intent);
                     finish();
 
-                } else {
+               } else {
                     Intent intent = new Intent(Carga.this, Principal.class);
                     startActivity(intent);
                     finish();

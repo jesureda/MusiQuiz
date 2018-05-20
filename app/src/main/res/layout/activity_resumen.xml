@@ -6,9 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".Resumen">
 
-    <TextView
-        android:id="@+id/txtProgre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="538dp">
+
+        <ImageView
+            android:id="@+id/imgPrincipal"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="50dp"
+            app:srcCompat="@drawable/musiquizblack" />
+
+        <ImageView
+            android:id="@+id/imgCheck"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="300dp"
+            app:srcCompat="@drawable/check" />
+
+        <ImageView
+            android:id="@+id/imgErr"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="380dp"
+            app:srcCompat="@drawable/error" />
+
+        <TextView
+            android:id="@+id/txtAcierto"
+            style="@style/Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="315dp" />
+
+        <TextView
+            android:id="@+id/txtFallo"
+            style="@style/Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="200dp"
+            android:layout_marginTop="395dp" />
+
+        <View
+            style="@style/Separador"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="57dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp" />
+
+        <TextView
+            android:id="@+id/txtResultado"
+            style="@style/Label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp" />
+
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
