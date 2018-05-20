@@ -28,13 +28,13 @@ public class Carga extends AppCompatActivity {
                 prefs = PreferenceManager
                         .getDefaultSharedPreferences(getApplicationContext());
                 if (!prefs.getBoolean("UserLoggedIn", false)) {
-
                     Intent intent = new Intent(Carga.this, Sesion.class);
                     startActivity(intent);
                     finish();
 
                } else {
-                    Intent intent = new Intent(Carga.this, Principal.class);
+                    //Intent intent = new Intent(Carga.this, Principal.class);
+                    Intent intent = new Intent(Carga.this, Sesion.class);
                     startActivity(intent);
                     finish();
                 }

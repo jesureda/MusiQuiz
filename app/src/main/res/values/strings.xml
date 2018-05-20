@@ -21,4 +21,17 @@
     <string name="temaB">Pistacho </string>
     <string name="superado">¡Nivel Superado!</string>
     <string name="noSuperado">Nivel no superado</string>
+
+    <string name="lblResA">Respuesta A: </string>
+    <string name="lblResB">Respuesta B: </string>
+    <string name="lblResC">Respuesta C: </string>
+    <string name="lblResD">Respuesta D: </string>
+    <string name="radResA">Res A</string>
+    <string name="radResB">Res B</string>
+    <string name="radResC">Res C</string>
+    <string name="radResD">Res D</string>
+    <string name="lblNivel">Indique el nivel: </string>
+    <string name="lblAudio">Seleccione un fichero MP3 </string>
+    <string name="lblCorrecta">Indique la opción correcta: </string>
+
 </resources>
