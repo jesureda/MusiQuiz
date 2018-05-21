@@ -116,6 +116,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         //db.close();
     }
 
+    public void insertarPregunta(String[] datos) {
+        String sql   = "INSERT INTO preguntas(enunciado,refAudio,respuestaA,respuestaB,respuestaC,respuestaD,correcta,nivel)";
+        sql  += "VALUES ('"+datos[0]+"','"+datos[1]+"','"+datos[2]+"','"+datos[3]+"','"+datos[4]+"','"+datos[5]+"','"+datos[6]+"',"+Integer.parseInt(datos[7])+");";
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL(sql);
+    }
+
     public ArrayList<Nivel> listaNiveles(int cantidad) {
         ArrayList<Nivel> niveles = new ArrayList<>();
         String sql = "SELECT * FROM niveles ";

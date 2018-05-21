@@ -52,7 +52,7 @@ public class Sesion extends AppCompatActivity {
                     }.start();
                 }
                 else {
-                    Toast.makeText(Sesion.this,"Introduce un nombre digno",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Sesion.this, "Introduce un nombre digno", Toast.LENGTH_SHORT).show();
                 }
             }
         });
