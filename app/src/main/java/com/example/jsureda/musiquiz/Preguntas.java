@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -114,9 +115,13 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
     private void playSound(final Context ctx, String fileName) {
         media = new MediaPlayer();
         try {
-            AssetFileDescriptor afd = ctx.getAssets().openFd(fileName);
-            media.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
-            afd.close();
+            if (fileName.contains("mp3")) {
+                AssetFileDescriptor afd = ctx.getAssets().openFd(fileName);
+                media.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+                afd.close();
+            } else {
+                media.setDataSource(ctx, Uri.parse(fileName));
+            }
             media.prepare();
         } catch (Exception e) {
             e.printStackTrace();

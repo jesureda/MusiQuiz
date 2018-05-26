@@ -81,7 +81,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String sql   = "INSERT INTO preguntas(enunciado,refAudio,respuestaA,respuestaB,respuestaC,respuestaD,correcta,nivel)";
         //Nivel 1
         sql  += "VALUES ('Indica el título de la canción','holiday.mp3','Holiday','No Giving Up','No Roads Left','Still Waiting','Holiday',1),";
-        sql  += "('¿En qué película suena esta canción?','timearechanging.mp3','Sin City ','Capitán América','Watchmen','Terminator','Watchmen',1),";
+        //sql  += "('¿En qué película suena esta canción?','timearechanging.mp3','Sin City ','Capitán América','Watchmen','Terminator','Watchmen',1),";
         sql  += "('¿De qué grupo es esta canción?','smellsliketeen.mp3','Nirvana','The Beatles','Rolling Stones','Abba','Nirvana',1),";
         sql  += "('Indica el título de la canción','sweetchild.mp3','Hell Bells','Losing My Religion','Wake Up','Sweet Child O Mine','Sweet Child O Mine',1),";
         sql  += "('¿De qué grupo es esta canción?','harderbetter.mp3','Imagine Dragons','Artic Monkeys','Daft Punk','Two Steps From Hell','Daft Punk',1),";
@@ -91,16 +91,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sql  += "('Indica el título de la canción','loverocknroll.mp3','Hot Blooded','Rock Of Ages','Gasoline','I Love Rock N Roll','I Love Rock N Roll',1),";
         sql  += "('¿De qué grupo es esta canción?','houserisingsun.mp3','Gorillaz','The Animals','Bee Gees','Darkseed','The Animals',1),";
         //Nivel 2
-        sql  += "('Indica el título de la canción','aha-takeonme.mp3','respuesta','Take On Me','respuesta','respuesta','Take On Me',2),";
-        sql  += "('¿En qué película suena este tema?','batmanbso.mp3','respuesta','respuesta','Batman','respuesta','Batman',2),";
-        sql  += "('Identifica al cantante de este tema','billyjeans.mp3','respuesta','Michael Jackson','respuesta','respuesta','Michael Jackson',2),";
-        sql  += "('Identifica al cantante de este tema','dayparadise.mp3','respuesta','respuesta','respuesta','Phil Collins','Phil Collins',2),";
-        sql  += "('¿En qué película suena este tema?','ghostbusters.mp3','respuesta','respuesta','Los Cazafantasmas','respuesta','Los Cazafantasmas',2),";
-        sql  += "('¿De qué grupo es esta canción?','inmigrantsong.mp3','Led Zeppelin','respuesta','respuesta','respuesta','Led Zeppelin',2),";
-        sql  += "('¿En qué serie suena este tema?','wontgetfooledagain.mp3','respuesta','respuesta','respuesta','CSI','CSI',2),";
-        sql  += "('Indica el título de la canción','imaman.mp3','respuesta','I´m A Man','respuesta','respuesta','I´m A Man',2),";
-        sql  += "('¿De qué grupo es esta canción?','wonderwall.mp3','Oasis','respuesta','respuesta','respuesta','Oasis',2),";
-        sql  += "('¿Qué actor da nombre a este tema?','clinteastwood.mp3','respuesta','respuesta','Clint Eastwood','respuesta','Clint Eastwood',2);";
+        sql  += "('Indica el título de la canción','aha-takeonme.mp3','Dirty Boots','Take On Me','Mad World','Fun Fun Fun','Take On Me',2),";
+        sql  += "('¿En qué película suena este tema?','batmanbso.mp3','Rain man','Superman','Batman','Spiderman','Batman',2),";
+        sql  += "('Identifica al cantante de este tema','billyjeans.mp3','Craig David','Michael Jackson','Bruno Mars','George Michael','Michael Jackson',2),";
+        sql  += "('Identifica al cantante de este tema','dayparadise.mp3','Kurt Cobain','Bono','Gary Jules','Phil Collins','Phil Collins',2),";
+        sql  += "('¿En qué película suena este tema?','ghostbusters.mp3','Casper','La Familia Adams','Los Cazafantasmas','Beetlejuice','Los Cazafantasmas',2),";
+        sql  += "('¿De qué grupo es esta canción?','inmigrantsong.mp3','Led Zeppelin','Rolling Stones','Foo Fighters','Europe','Led Zeppelin',2),";
+        sql  += "('¿En qué serie suena este tema?','wontgetfooledagain.mp3','Castle','NCIS','Caso Abierto','CSI','CSI',2),";
+        sql  += "('Indica el título de la canción','imaman.mp3','Like a Virgin','I´m A Man','I´m Alive','Katchi','I´m A Man',2),";
+        sql  += "('¿De qué grupo es esta canción?','wonderwall.mp3','Oasis','Metallica','Coldplay','U2','Oasis',2),";
+        sql  += "('¿Qué actor da nombre a este tema?','clinteastwood.mp3','George Clooney','Brad Pitt','Clint Eastwood','Sean Connery','Clint Eastwood',2),";
+
+        //Nivel 3
+        sql  += "('Indica el título de la canción','aha-takeonme.mp3','Dirty Boots','Take On Me','Mad World','Fun Fun Fun','Take On Me',2),";
+        sql  += "('¿En qué película suena este tema?','batmanbso.mp3','Rain man','Superman','Batman','Spiderman','Batman',2),";
+        sql  += "('Identifica al cantante de este tema','billyjeans.mp3','Craig David','Michael Jackson','Bruno Mars','George Michael','Michael Jackson',2),";
+        sql  += "('Identifica al cantante de este tema','dayparadise.mp3','Kurt Cobain','Bono','Gary Jules','Phil Collins','Phil Collins',2),";
+        sql  += "('¿En qué película suena este tema?','ghostbusters.mp3','Casper','La Familia Adams','Los Cazafantasmas','Beetlejuice','Los Cazafantasmas',2),";
+        sql  += "('¿De qué grupo es esta canción?','inmigrantsong.mp3','Led Zeppelin','Rolling Stones','Foo Fighters','Europe','Led Zeppelin',2),";
+        sql  += "('¿En qué serie suena este tema?','wontgetfooledagain.mp3','Castle','NCIS','Caso Abierto','CSI','CSI',2),";
+        sql  += "('Indica el título de la canción','imaman.mp3','Like a Virgin','I´m A Man','I´m Alive','Katchi','I´m A Man',2),";
+        sql  += "('¿De qué grupo es esta canción?','wonderwall.mp3','Oasis','Metallica','Coldplay','U2','Oasis',2),";
+        sql  += "('¿Qué actor da nombre a este tema?','clinteastwood.mp3','George Clooney','Brad Pitt','Clint Eastwood','Sean Connery','Clint Eastwood',2),";
+
+        //Nivel 4
+        sql  += "('Indica el título de la canción','aha-takeonme.mp3','Dirty Boots','Take On Me','Mad World','Fun Fun Fun','Take On Me',2),";
+        sql  += "('¿En qué película suena este tema?','batmanbso.mp3','Rain man','Superman','Batman','Spiderman','Batman',2),";
+        sql  += "('Identifica al cantante de este tema','billyjeans.mp3','Craig David','Michael Jackson','Bruno Mars','George Michael','Michael Jackson',2),";
+        sql  += "('Identifica al cantante de este tema','dayparadise.mp3','Kurt Cobain','Bono','Gary Jules','Phil Collins','Phil Collins',2),";
+        sql  += "('¿En qué película suena este tema?','ghostbusters.mp3','Casper','La Familia Adams','Los Cazafantasmas','Beetlejuice','Los Cazafantasmas',2),";
+        sql  += "('¿De qué grupo es esta canción?','inmigrantsong.mp3','Led Zeppelin','Rolling Stones','Foo Fighters','Europe','Led Zeppelin',2),";
+        sql  += "('¿En qué serie suena este tema?','wontgetfooledagain.mp3','Castle','NCIS','Caso Abierto','CSI','CSI',2),";
+        sql  += "('Indica el título de la canción','imaman.mp3','Like a Virgin','I´m A Man','I´m Alive','Katchi','I´m A Man',2),";
+        sql  += "('¿De qué grupo es esta canción?','wonderwall.mp3','Oasis','Metallica','Coldplay','U2','Oasis',2),";
+        sql  += "('¿Qué actor da nombre a este tema?','clinteastwood.mp3','George Clooney','Brad Pitt','Clint Eastwood','Sean Connery','Clint Eastwood',2);";
         db.execSQL(sql);
         //db.close();
     }

@@ -1,19 +1,28 @@
 package com.example.jsureda.musiquiz;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.IOException;
+
 public class Aniadir extends AppCompatActivity {
+    private static final int READ_REQUEST_CODE = 42;
     EditText resA, resB, resC, resD, enunciado;
     Spinner spnNivel;
     String radio = "";
@@ -22,14 +31,15 @@ public class Aniadir extends AppCompatActivity {
     String[] datos = new String[8];
     DatabaseHelper dbAniadir;
     boolean vacio;
-
+    MediaPlayer media;
+    Uri uri = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aniadir);
         dbAniadir = new DatabaseHelper(this);
         inicializarGUI();
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.niveles_array, android.R.layout.simple_spinner_item);
+        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.niveles_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
@@ -37,7 +47,8 @@ public class Aniadir extends AppCompatActivity {
         fabAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                performFileSearch();
+                Toast.makeText(Aniadir.this, "Pulsado el botono", Toast.LENGTH_SHORT).show();
             }
         });
         fabAceptar.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +57,7 @@ public class Aniadir extends AppCompatActivity {
                 //enunciado,refAudio,respuestaA,respuestaB,respuestaC,respuestaD,correcta,nivel
                 vacio = false;
                 datos[0] = enunciado.getText().toString();
-                datos[1] = "batmanbso.mp3";
+                datos[1] = uri.toString();
                 datos[2] = resA.getText().toString();
                 datos[3] = resB.getText().toString();
                 datos[4] = resC.getText().toString();
@@ -89,5 +100,57 @@ public class Aniadir extends AppCompatActivity {
         radD = (RadioButton) findViewById(R.id.radResD);
         fabAudio = (FloatingActionButton) findViewById(R.id.fabAudio);
         fabAceptar = (FloatingActionButton) findViewById(R.id.fabConfirm);
+    }
+
+    /**
+     * Fires an intent to spin up the "file chooser" UI and select an image.
+     */
+    public void performFileSearch() {
+
+        // ACTION_OPEN_DOCUMENT is the intent to choose a file via the system's file
+        // browser.
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+
+        // Filter to only show results that can be "opened", such as a
+        // file (as opposed to a list of contacts or timezones)
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+
+        // Filter to show only images, using the image MIME data type.
+        // If one wanted to search for ogg vorbis files, the type would be "audio/ogg".
+        // To search for all documents available via installed storage providers,
+        // it would be "*/*".
+        intent.setType("audio/*");
+
+        startActivityForResult(intent, READ_REQUEST_CODE);
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent resultData) {
+        // The ACTION_OPEN_DOCUMENT intent was sent with the request code
+        // READ_REQUEST_CODE. If the request code seen here doesn't match, it's the
+        // response to some other intent, and the code below shouldn't run at all.
+
+        if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            // The document selected by the user won't be returned in the intent.
+            // Instead, a URI to that document will be contained in the return intent
+            // provided to this method as a parameter.
+            // Pull that URI using resultData.getData().
+
+            if (resultData != null) {
+                uri = resultData.getData();
+                Log.i("Musiquiz", "Uri: " + uri.toString());
+            }
+        }
+    }
+    private void playSound(Uri myUri) {
+        media = new MediaPlayer();
+        try {
+            // mediaPlayer.setDataSource(String.valueOf(myUri));
+            media.setDataSource(this,myUri);
+            media.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        media.start();
     }
 }
