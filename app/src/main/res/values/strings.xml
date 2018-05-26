@@ -34,7 +34,7 @@
     <string name="lblNivel">Indique el nivel: </string>
     <string name="lblAudio">Seleccione un fichero MP3 </string>
     <string name="lblCorrecta">Indique la opción correcta: </string>
-
+    <string name="lblAniadir">Añadir</string>
     <string-array name="niveles_array">
         <item>Nivel 1</item>
         <item>Nivel 2</item>

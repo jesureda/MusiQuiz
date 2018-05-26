@@ -28,7 +28,7 @@ public class Sesion extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (txtUsuario.length()>4){
+                if (txtUsuario.length()>3){
                     prefs = PreferenceManager
                             .getDefaultSharedPreferences(Sesion.this);
                     SharedPreferences.Editor editor = prefs.edit();
@@ -52,7 +52,7 @@ public class Sesion extends AppCompatActivity {
                     }.start();
                 }
                 else {
-                    Toast.makeText(Sesion.this, "Introduce un nombre digno", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Sesion.this, "Introduce un usuario de al menos 4 caracteres", Toast.LENGTH_SHORT).show();
                 }
             }
         });

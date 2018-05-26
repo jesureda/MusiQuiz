@@ -12,7 +12,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
@@ -23,21 +25,24 @@ import java.io.IOException;
 
 public class Aniadir extends AppCompatActivity {
     private static final int READ_REQUEST_CODE = 42;
+    final String TAG = "INFO";
     EditText resA, resB, resC, resD, enunciado;
     Spinner spnNivel;
     String radio = "";
+    Button btnConfirm;
     RadioButton radA, radB, radC, radD;
-    FloatingActionButton fabAudio, fabAceptar;
+    FloatingActionButton fabAudio;
     String[] datos = new String[8];
     DatabaseHelper dbAniadir;
     boolean vacio;
-    MediaPlayer media;
     Uri uri = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aniadir);
         dbAniadir = new DatabaseHelper(this);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         inicializarGUI();
         final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.niveles_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
@@ -48,16 +53,15 @@ public class Aniadir extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 performFileSearch();
-                Toast.makeText(Aniadir.this, "Pulsado el botono", Toast.LENGTH_SHORT).show();
             }
         });
-        fabAceptar.setOnClickListener(new View.OnClickListener() {
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //enunciado,refAudio,respuestaA,respuestaB,respuestaC,respuestaD,correcta,nivel
                 vacio = false;
                 datos[0] = enunciado.getText().toString();
-                datos[1] = uri.toString();
+                if (uri==null) {datos[1] = "vacio";} else {datos[1] = uri.toString();}
                 datos[2] = resA.getText().toString();
                 datos[3] = resB.getText().toString();
                 datos[4] = resC.getText().toString();
@@ -77,6 +81,8 @@ public class Aniadir extends AppCompatActivity {
                 }
                 if (vacio) {
                     Toast.makeText(Aniadir.this, "Debes rellenar todos los campos", Toast.LENGTH_SHORT).show();
+                } else if (datos[1].equals("vacio")) {
+                    Toast.makeText(Aniadir.this, "Debes seleccionar un recurso de audio", Toast.LENGTH_SHORT).show();
                 } else {
                     dbAniadir.insertarPregunta(datos);
                     Intent intent = new Intent(getApplicationContext(), Principal.class);
@@ -99,7 +105,7 @@ public class Aniadir extends AppCompatActivity {
         radC = (RadioButton) findViewById(R.id.radResC);
         radD = (RadioButton) findViewById(R.id.radResD);
         fabAudio = (FloatingActionButton) findViewById(R.id.fabAudio);
-        fabAceptar = (FloatingActionButton) findViewById(R.id.fabConfirm);
+        btnConfirm = (Button) findViewById(R.id.btnConfirm);
     }
 
     /**
@@ -123,6 +129,7 @@ public class Aniadir extends AppCompatActivity {
 
         startActivityForResult(intent, READ_REQUEST_CODE);
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode,
                                  Intent resultData) {
@@ -138,19 +145,9 @@ public class Aniadir extends AppCompatActivity {
 
             if (resultData != null) {
                 uri = resultData.getData();
-                Log.i("Musiquiz", "Uri: " + uri.toString());
+                Log.i(TAG, "Uri: " + uri.toString());
+                Toast.makeText(Aniadir.this, "Ruta al recurso almacenada", Toast.LENGTH_SHORT).show();
             }
         }
-    }
-    private void playSound(Uri myUri) {
-        media = new MediaPlayer();
-        try {
-            // mediaPlayer.setDataSource(String.valueOf(myUri));
-            media.setDataSource(this,myUri);
-            media.prepare();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        media.start();
     }
 }
