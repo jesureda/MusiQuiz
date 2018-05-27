@@ -1,10 +1,9 @@
 package com.example.jsureda.musiquiz;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 
 public class Ajustes extends PreferenceActivity {
@@ -27,5 +26,12 @@ public class Ajustes extends PreferenceActivity {
     private void inicicializarGUI()
     {
         fab=(FloatingActionButton)findViewById(R.id.fabAjuste);
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Ajustes.this, Principal.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -3,31 +3,20 @@ package com.example.jsureda.musiquiz;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class Preguntas extends AppCompatActivity implements FragBotones.OnFragmentInteractionListener {
     TextView txtTiempo;
     ImageButton player;
-    FragBotones botones = new FragBotones();
     ArrayList<Pregunta> questions = new ArrayList<>();
     private DatabaseHelper pregSQLite = null;
     int nivel, progresoInicial, contador = 0, progreso = 0;
@@ -57,7 +46,6 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
 
     public void onFragmentInteraction(String resultado) {
         if (resultado.equals(questions.get(contador).getCorrecta())) {
-            //Toast.makeText(this, "Has acertado hulio", Toast.LENGTH_LONG).show();
             progreso++;
         }
         contador++;
@@ -102,12 +90,29 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
     private void temporizador() {
         tiempo = new CountDownTimer(30000, 1000) {
             public void onTick(long millisUntilFinished) {
-                txtTiempo.setText("Tiempo restante: " + millisUntilFinished / 1000);
+                txtTiempo.setText(getString(R.string.labelTiempo)+ millisUntilFinished / 1000);
                 //here you can have your logic to set text to edittext
             }
 
             public void onFinish() {
-                txtTiempo.setText("Fuera de tiempo!");
+                txtTiempo.setText(R.string.labelFueraTiempo);
+                if (txtTiempo.getText().equals(getString(R.string.labelFueraTiempo)))
+                {
+                    contador++;
+                    media.stop();
+                    tiempo.cancel();
+                    if (contador < 10) {
+                        temporizador();
+                        openFragment();
+                    } else {
+                        Intent intent = new Intent(Preguntas.this, Resumen.class);
+                        intent.putExtra("progresoRonda", progreso);
+                        intent.putExtra("nivelSel", nivel);
+                        intent.putExtra("progresoInicial", progresoInicial);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
             }
         }.start();
     }
@@ -127,5 +132,12 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
             e.printStackTrace();
         }
         media.start();
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Preguntas.this, ListaNiveles.class);
+        startActivity(intent);
+        finish();
     }
 }

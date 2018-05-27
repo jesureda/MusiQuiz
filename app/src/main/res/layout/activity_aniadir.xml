@@ -30,7 +30,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/lblNivel" />
+                    android:text="@string/labelNivel" />
 
                 <Spinner
                     android:id="@+id/spnNivel"
@@ -54,7 +54,7 @@
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/lblEnunciado" />
+                    android:text="@string/labelEnunciado" />
 
                 <EditText
                     android:id="@+id/txtEnunciado"
@@ -82,7 +82,7 @@
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/lblResA" />
+                    android:text="@string/labelResA" />
 
                 <EditText
                     android:id="@+id/txtResA"
@@ -109,7 +109,7 @@
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/lblResB" />
+                    android:text="@string/labelResB" />
 
                 <EditText
                     android:id="@+id/txtResB"
@@ -136,7 +136,7 @@
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/lblResC" />
+                    android:text="@string/labelResC" />
 
                 <EditText
                     android:id="@+id/txtResC"
@@ -163,7 +163,7 @@
                     android:layout_width="220dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/lblResD" />
+                    android:text="@string/labelResD" />
 
                 <EditText
                     android:id="@+id/txtResD"
@@ -184,7 +184,7 @@
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
                 android:paddingTop="10dp"
-                android:text="@string/lblCorrecta" />
+                android:text="@string/labelCorrecta" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -197,28 +197,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/radResA" />
+                    android:text="@string/radioResA" />
 
                 <RadioButton
                     android:id="@+id/radResB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/radResB" />
+                    android:text="@string/radioResB" />
 
                 <RadioButton
                     android:id="@+id/radResC"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/radResC" />
+                    android:text="@string/radioResC" />
 
                 <RadioButton
                     android:id="@+id/radResD"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="@string/radResD" />
+                    android:text="@string/radioResD" />
             </RadioGroup>
 
             <LinearLayout
@@ -243,7 +243,7 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingTop="10dp"
-                    android:text="@string/lblAudio"
+                    android:text="@string/labelAudio"
                     tools:layout_editor_absoluteX="140dp"
                     tools:layout_editor_absoluteY="406dp" />
 
@@ -267,7 +267,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="25dp"
-                android:text="@string/lblAniadir" />
+                android:text="@string/labelAniadir" />
 
         </LinearLayout>
     </ScrollView>

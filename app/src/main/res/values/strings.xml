@@ -1,44 +1,57 @@
 <resources>
-    <string name="app_name">MusiQuiz</string>
-    <string name="labelUsuario">Usuario: </string>
+    <!-- Pantalla de Carga -->
+    <string name="app_name" translatable="false">MusiQuiz</string>
 
-    <string name="labelClave">Clave: </string>
+    <!-- Pantalla de Inicio de Sesión -->
+    <string name="labelUsuario">Usuario: </string>
     <string name="labelEntrar">Entrar</string>
+    <string name="toastNombre">Introduce un usuario de al menos 4 caracteres</string>
+
+    <!-- Pantalla de Principal -->
     <string name="labelJugar">Jugar</string>
+    <string name="toastSalir">Vuelva a presionar el botón para salir</string>
+
+    <!-- Pantalla de Ajustes -->
     <string name="labelEfSonido">EFECTOS DE SONIDO</string>
     <string name="labelIdioma">IDIOMA </string>
     <string name="labelTema">TEMAS</string>
-    <string name="labelRanking">Ranking</string>
-    <string name="toastSalir">Vuelva a presionar el botón para salir</string>
-    <string name="title_activity_ajustes">Ajustes</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sonido">Sonido </string>
     <string name="idiomaA">Español </string>
     <string name="idiomaB">Inglés</string>
-    <string name="temaA">Azul </string>
-    <string name="temaB">Pistacho </string>
-    <string name="superado">¡Nivel Superado!</string>
-    <string name="noSuperado">Nivel no superado</string>
+    <string name="temaA" translatable="false">Vintage </string>
+    <string name="temaB" translatable="false">Colorista </string>
+    <string name="toastCampos">Debe rellenar todos los campos</string>
+    <string name="toastAudio">Debe seleccionar un recurso de audio</string>
+    <string name="toastRecurso">Ruta al recurso almacenada</string>
 
-    <string name="lblEnunciado">Enunciado: </string>
-    <string name="lblResA">Respuesta A: </string>
-    <string name="lblResB">Respuesta B: </string>
-    <string name="lblResC">Respuesta C: </string>
-    <string name="lblResD">Respuesta D: </string>
-    <string name="radResA">Res A</string>
-    <string name="radResB">Res B</string>
-    <string name="radResC">Res C</string>
-    <string name="radResD">Res D</string>
-    <string name="lblNivel">Indique el nivel: </string>
-    <string name="lblAudio">Seleccione un fichero MP3 </string>
-    <string name="lblCorrecta">Indique la opción correcta: </string>
-    <string name="lblAniadir">Añadir</string>
+    <!-- Pantalla Resumen -->
+    <string name="labelSuperado">¡Nivel Superado!</string>
+    <string name="labelNoSuperado">Nivel no superado</string>
+    <string name="labelAciertos">Aciertos</string>
+    <string name="labelFallos">Fallos</string>
+
+    <!-- Pantalla Añadir -->
+    <string name="labelEnunciado">Enunciado: </string>
+    <string name="labelResA">Respuesta A: </string>
+    <string name="labelResB">Respuesta B: </string>
+    <string name="labelResC">Respuesta C: </string>
+    <string name="labelResD">Respuesta D: </string>
+    <string name="radioResA">Res A</string>
+    <string name="radioResB">Res B</string>
+    <string name="radioResC">Res C</string>
+    <string name="radioResD">Res D</string>
+    <string name="labelNivel">Indique el nivel: </string>
+    <string name="labelAudio">Seleccione un fichero MP3 </string>
+    <string name="labelCorrecta">Indique la opción correcta: </string>
+    <string name="labelAniadir">Añadir</string>
     <string-array name="niveles_array">
         <item>Nivel 1</item>
         <item>Nivel 2</item>
         <item>Nivel 3</item>
         <item>Nivel 4</item>
     </string-array>
+
+    <!-- Pantalla Preguntas -->
+    <string name="labelTiempo">Tiempo restante: </string>
+    <string name="labelFueraTiempo">Fuera de tiempo!</string>
 </resources>

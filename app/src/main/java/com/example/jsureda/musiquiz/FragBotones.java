@@ -1,20 +1,14 @@
 package com.example.jsureda.musiquiz;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.io.Serializable;
-import java.util.ArrayList;
 
 
 public class FragBotones extends Fragment {
@@ -23,7 +17,6 @@ public class FragBotones extends Fragment {
     int codigo;
     String correcta;
     TextView enunciado;
-    String txtA, txtB, txtC, txtD;
     Button resA, resB, resC, resD;
 
     public FragBotones() {
@@ -92,11 +85,7 @@ public class FragBotones extends Fragment {
                 mListener.onFragmentInteraction(resD.getText().toString());
             }
         });
-        //Inflate the layout for this fragment
-/*        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            codigo = bundle.getInt("id", 0);
-        }*/
+
         return rootView;
     }
 

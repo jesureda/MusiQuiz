@@ -24,14 +24,15 @@ public class Principal extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Ajustes.class);
                 startActivity(intent);
+                finish();
             }
         });
         btnRanking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(getApplicationContext(), Ranking.class);
                 Intent intent = new Intent(getApplicationContext(), Aniadir.class);
                 startActivity(intent);
+                finish();
             }
         });
         btnSalir.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +47,7 @@ public class Principal extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ListaNiveles.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
@@ -74,6 +76,5 @@ public class Principal extends AppCompatActivity {
             }, 3 * 1000);
 
         }
-
     }
 }

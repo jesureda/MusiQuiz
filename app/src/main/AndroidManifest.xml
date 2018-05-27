@@ -24,7 +24,6 @@
         <activity
             android:name=".Ajustes"
             android:theme="@style/SettingsTheme" />
-        <activity android:name=".Ranking" />
         <activity android:name=".ListaNiveles" />
         <activity android:name=".Preguntas" />
         <activity android:name=".Resumen" />

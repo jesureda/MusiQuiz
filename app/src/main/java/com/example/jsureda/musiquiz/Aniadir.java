@@ -1,13 +1,9 @@
 package com.example.jsureda.musiquiz;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.AssetFileDescriptor;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,9 +15,6 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import java.io.File;
-import java.io.IOException;
 
 public class Aniadir extends AppCompatActivity {
     private static final int READ_REQUEST_CODE = 42;
@@ -61,7 +54,7 @@ public class Aniadir extends AppCompatActivity {
                 //enunciado,refAudio,respuestaA,respuestaB,respuestaC,respuestaD,correcta,nivel
                 vacio = false;
                 datos[0] = enunciado.getText().toString();
-                if (uri==null) {datos[1] = "vacio";} else {datos[1] = uri.toString();}
+                if (uri == null) {datos[1] = "vacio";} else {datos[1] = uri.toString();}
                 datos[2] = resA.getText().toString();
                 datos[3] = resB.getText().toString();
                 datos[4] = resC.getText().toString();
@@ -80,9 +73,9 @@ public class Aniadir extends AppCompatActivity {
                     if (datos[i].isEmpty()) {vacio = true;}
                 }
                 if (vacio) {
-                    Toast.makeText(Aniadir.this, "Debes rellenar todos los campos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Aniadir.this, R.string.toastCampos, Toast.LENGTH_SHORT).show();
                 } else if (datos[1].equals("vacio")) {
-                    Toast.makeText(Aniadir.this, "Debes seleccionar un recurso de audio", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Aniadir.this, R.string.toastAudio, Toast.LENGTH_SHORT).show();
                 } else {
                     dbAniadir.insertarPregunta(datos);
                     Intent intent = new Intent(getApplicationContext(), Principal.class);
@@ -121,10 +114,7 @@ public class Aniadir extends AppCompatActivity {
         // file (as opposed to a list of contacts or timezones)
         intent.addCategory(Intent.CATEGORY_OPENABLE);
 
-        // Filter to show only images, using the image MIME data type.
-        // If one wanted to search for ogg vorbis files, the type would be "audio/ogg".
-        // To search for all documents available via installed storage providers,
-        // it would be "*/*".
+        // Filter to show only audio, using the image MIME data type.
         intent.setType("audio/*");
 
         startActivityForResult(intent, READ_REQUEST_CODE);
@@ -146,8 +136,15 @@ public class Aniadir extends AppCompatActivity {
             if (resultData != null) {
                 uri = resultData.getData();
                 Log.i(TAG, "Uri: " + uri.toString());
-                Toast.makeText(Aniadir.this, "Ruta al recurso almacenada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Aniadir.this, R.string.toastRecurso, Toast.LENGTH_SHORT).show();
             }
         }
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Aniadir.this, Principal.class);
+        startActivity(intent);
+        finish();
     }
 }

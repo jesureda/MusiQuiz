@@ -2,7 +2,6 @@ package com.example.jsureda.musiquiz;
 
 import android.content.Intent;
 import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
@@ -31,15 +30,15 @@ public class Resumen extends AppCompatActivity {
             if ((progresoRonda>7) && (nivel<5)){
                 nivel++;
                 resSQLite.actualizarNivel(nivel, 0, 0);
-                txtResult.setText(R.string.superado);
+                txtResult.setText(R.string.labelSuperado);
             }
             else{
-                txtResult.setText(R.string.noSuperado);
+                txtResult.setText(R.string.labelNoSuperado);
             }
         }
 
-        txtAcierto.setText(progresoRonda+" Aciertos");
-        txtFallo.setText((10-progresoRonda)+" Fallos");
+        txtAcierto.setText(progresoRonda+" "+getString(R.string.labelAciertos));
+        txtFallo.setText((10-progresoRonda)+" "+getString(R.string.labelFallos));
 
         new Handler().postDelayed(new Runnable() {
             @Override

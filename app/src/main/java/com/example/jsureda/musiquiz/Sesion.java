@@ -52,7 +52,7 @@ public class Sesion extends AppCompatActivity {
                     }.start();
                 }
                 else {
-                    Toast.makeText(Sesion.this, "Introduce un usuario de al menos 4 caracteres", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Sesion.this,R.string.toastNombre, Toast.LENGTH_SHORT).show();
                 }
             }
         });
