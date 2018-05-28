@@ -18,8 +18,8 @@
     <string name="sonido">Sonido </string>
     <string name="idiomaA">Español </string>
     <string name="idiomaB">Inglés</string>
-    <string name="temaA" translatable="false">Vintage </string>
-    <string name="temaB" translatable="false">Colorista </string>
+    <string name="temaA" translatable="false">Classic </string>
+    <string name="temaB" translatable="false">Mustard </string>
     <string name="toastCampos">Debe rellenar todos los campos</string>
     <string name="toastAudio">Debe seleccionar un recurso de audio</string>
     <string name="toastRecurso">Ruta al recurso almacenada</string>

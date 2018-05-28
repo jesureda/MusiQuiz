@@ -22,11 +22,17 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
     int nivel, progresoInicial, contador = 0, progreso = 0;
     MediaPlayer media = null;
     CountDownTimer tiempo;
+    boolean sonido,tema;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tema = getIntent().getBooleanExtra("tema", true);
+        if (tema) {
+            setTheme(R.style.AppTheme);
+        } else {setTheme(R.style.AppTheme2);}
         setContentView(R.layout.activity_preguntas);
+        sonido = getIntent().getBooleanExtra("sonido", true);
         nivel = getIntent().getIntExtra("nivelSel", 0);
         progresoInicial = getIntent().getIntExtra("progresoInicial", 0);
         pregSQLite = new DatabaseHelper(this);
@@ -50,6 +56,7 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
         }
         contador++;
         media.stop();
+        media.release();
         tiempo.cancel();
         if (contador < 10) {
             temporizador();
@@ -59,6 +66,7 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
             intent.putExtra("progresoRonda", progreso);
             intent.putExtra("nivelSel", nivel);
             intent.putExtra("progresoInicial", progresoInicial);
+            intent.putExtra("tema", tema);
             startActivity(intent);
             finish();
         }
@@ -74,6 +82,7 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
         FragBotones botones = new FragBotones();
 
         Bundle bundle = new Bundle();
+        bundle.putBoolean("sonido",sonido);
         bundle.putString("enunciado", questions.get(contador).getEnunciado());
         bundle.putString("resA", questions.get(contador).getRespuestaA());
         bundle.putString("resB", questions.get(contador).getRespuestaB());
@@ -88,7 +97,7 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
     }
 
     private void temporizador() {
-        tiempo = new CountDownTimer(30000, 1000) {
+        tiempo = new CountDownTimer(20000, 1000) {
             public void onTick(long millisUntilFinished) {
                 txtTiempo.setText(getString(R.string.labelTiempo)+ millisUntilFinished / 1000);
                 //here you can have your logic to set text to edittext
@@ -100,6 +109,7 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
                 {
                     contador++;
                     media.stop();
+                    media.release();
                     tiempo.cancel();
                     if (contador < 10) {
                         temporizador();
@@ -109,6 +119,7 @@ public class Preguntas extends AppCompatActivity implements FragBotones.OnFragme
                         intent.putExtra("progresoRonda", progreso);
                         intent.putExtra("nivelSel", nivel);
                         intent.putExtra("progresoInicial", progresoInicial);
+                        intent.putExtra("tema", tema);
                         startActivity(intent);
                         finish();
                     }

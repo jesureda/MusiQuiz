@@ -11,10 +11,14 @@ public class Resumen extends AppCompatActivity {
     int progresoRonda, progresoInicial, nivel;
     private DatabaseHelper resSQLite=null;
     TextView txtAcierto,txtFallo,txtResult;
-
+    boolean tema;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tema = getIntent().getBooleanExtra("tema", true);
+        if (tema) {
+            setTheme(R.style.AppTheme);
+        } else {setTheme(R.style.AppTheme2);}
         setContentView(R.layout.activity_resumen);
         txtAcierto = (TextView) findViewById(R.id.txtAcierto);
         txtFallo = (TextView) findViewById(R.id.txtFallo);
@@ -44,6 +48,7 @@ public class Resumen extends AppCompatActivity {
             @Override
             public void run() {
                     Intent intent = new Intent(Resumen.this, ListaNiveles.class);
+                    intent.putExtra("tema", tema);
                     startActivity(intent);
                     finish();
             }

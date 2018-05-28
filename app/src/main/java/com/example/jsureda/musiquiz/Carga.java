@@ -13,8 +13,6 @@ import android.widget.Toast;
 public class Carga extends AppCompatActivity {
     private static int SPLASH_TIME_OUT = 1500;
     private SharedPreferences prefs;
-    boolean idioma;
-    String langu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +26,6 @@ public class Carga extends AppCompatActivity {
 
                 prefs = PreferenceManager
                         .getDefaultSharedPreferences(getApplicationContext());
-                idioma = prefs.getBoolean("check_box_preference_1", true);
-                if (idioma) {
-                    langu = "Español";
-                } else {langu = "Inglés";}
-                Toast.makeText(getApplicationContext(), langu, Toast.LENGTH_SHORT).show();
 
                 if (!prefs.getBoolean("UserLoggedIn", false)) {
                     Intent intent = new Intent(Carga.this, Sesion.class);

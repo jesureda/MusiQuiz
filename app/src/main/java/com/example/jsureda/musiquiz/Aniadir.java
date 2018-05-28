@@ -2,6 +2,8 @@ package com.example.jsureda.musiquiz;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +18,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 public class Aniadir extends AppCompatActivity {
     private static final int READ_REQUEST_CODE = 42;
     final String TAG = "INFO";
@@ -29,10 +33,16 @@ public class Aniadir extends AppCompatActivity {
     DatabaseHelper dbAniadir;
     boolean vacio;
     Uri uri = null;
+    MediaPlayer mp;
+    boolean sonido,tema;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        tema = getIntent().getBooleanExtra("tema", true);
+        if (tema) {
+            setTheme(R.style.AppTheme);
+        } else {setTheme(R.style.AppTheme2);}
         setContentView(R.layout.activity_aniadir);
         dbAniadir = new DatabaseHelper(this);
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -45,6 +55,7 @@ public class Aniadir extends AppCompatActivity {
         fabAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (sonido) { sonidoBoton(); }
                 performFileSearch();
             }
         });
@@ -52,6 +63,7 @@ public class Aniadir extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //enunciado,refAudio,respuestaA,respuestaB,respuestaC,respuestaD,correcta,nivel
+                if (sonido) { sonidoBoton(); }
                 vacio = false;
                 datos[0] = enunciado.getText().toString();
                 if (uri == null) {datos[1] = "vacio";} else {datos[1] = uri.toString();}
@@ -146,5 +158,20 @@ public class Aniadir extends AppCompatActivity {
         Intent intent = new Intent(Aniadir.this, Principal.class);
         startActivity(intent);
         finish();
+    }
+
+    private void sonidoBoton() {
+        mp = new MediaPlayer();
+        try {
+            AssetFileDescriptor afd = getApplicationContext().getAssets().openFd("clickbutton.mp3");
+            mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
+            afd.close();
+            mp.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mp.start();
+        if(!mp.isPlaying())
+            mp.release();
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
+import android.preference.SwitchPreference;
 
 public class Opciones extends PreferenceFragment {
 
@@ -11,7 +12,7 @@ public class Opciones extends PreferenceFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.opciones);
-
+        final SwitchPreference prefSw = (SwitchPreference) findPreference("pref1");
         final CheckBoxPreference prefA = (CheckBoxPreference) findPreference("check_box_preference_1");
         final CheckBoxPreference prefB = (CheckBoxPreference) findPreference("check_box_preference_2");
         final CheckBoxPreference prefC = (CheckBoxPreference) findPreference("check_box_preference_3");
