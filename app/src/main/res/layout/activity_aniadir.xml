@@ -63,6 +63,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
+                    android:maxLength="36"
                     android:singleLine="false" />
 
             </LinearLayout>
@@ -90,7 +91,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:maxLength="20" />
 
             </LinearLayout>
 
@@ -117,7 +119,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:maxLength="20" />
 
             </LinearLayout>
 
@@ -144,7 +147,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:maxLength="20" />
 
             </LinearLayout>
 
@@ -171,7 +175,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    android:maxLength="20" />
 
             </LinearLayout>
 

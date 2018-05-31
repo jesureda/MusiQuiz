@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="labelUsuario">User:</string>
+    <string name="labelUsuario">User: </string>
     <string name="labelEntrar">Enter</string>
     <string name="labelJugar">Play</string>
     <string name="idiomaA">Spanish</string>
@@ -12,7 +12,7 @@
     <string name="labelEfSonido">SOUND EFFECTS</string>
     <string name="labelIdioma">LANGUAGE</string>
     <string name="labelTema">THEMES</string>
-    <string name="sonido">SOUND</string>
+    <string name="sonido">Sound</string>
     <string name="toastCampos">You must fill in all fields</string>
     <string name="toastAudio">You must select an audio resource</string>
     <string name="toastRecurso">Path to the stored resource</string>
@@ -21,18 +21,18 @@
     <string name="labelAciertos">Hits</string>
     <string name="labelFallos">Errors</string>
     <string name="labelEnunciado">Statement:</string>
-    <string name="labelResA">Answer A:</string>
-    <string name="labelResB">Answer B:</string>
-    <string name="labelResC">Answer C:</string>
-    <string name="labelResD">Answer D:</string>
+    <string name="labelResA">Answer A: </string>
+    <string name="labelResB">Answer B: </string>
+    <string name="labelResC">Answer C: </string>
+    <string name="labelResD">Answer D: </string>
     <string name="radioResA">Ans A</string>
     <string name="radioResB">Ans B</string>
     <string name="radioResC">Ans C</string>
     <string name="radioResD">Ans D</string>
-    <string name="labelNivel">Select the level:</string>
+    <string name="labelNivel">Select the level: </string>
     <string name="labelAudio">Select an MP3 file</string>
     <string name="labelCorrecta">Select the correct option:</string>
-    <string name="labelTiempo">Time left:</string>
+    <string name="labelTiempo">Time left: </string>
     <string-array name="niveles_array">
         <item>Level 1</item>
         <item>Level 2</item>

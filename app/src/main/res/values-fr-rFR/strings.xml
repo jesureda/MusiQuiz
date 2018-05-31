@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="labelUsuario">Utilisateur: </string>
+    <string name="labelEntrar">Entrer</string>
+    <string name="labelJugar">Jouer</string>
+    <string name="idiomaA">Espagnol</string>
+    <string name="idiomaB">Anglais</string>
+    <string name="labelAniadir">Ajouter</string>
+    <string name="labelFueraTiempo">Hors du temps!</string>
+    <string name="toastNombre">Entrez un utilisateur d\'au moins 4 caractères</string>
+    <string name="toastSalir">Appuyez à nouveau sur le bouton pour quitter</string>
+    <string name="labelEfSonido">"EFFETS DU SON "</string>
+    <string name="labelIdioma">LANGAGE</string>
+    <string name="labelTema">THÈMES</string>
+    <string name="sonido">Son</string>
+    <string name="toastCampos">Vous devez remplir tous les champs</string>
+    <string name="toastAudio">Vous devez sélectionner une ressource audio</string>
+    <string name="toastRecurso">Chemin d\'accès à la ressource stockée</string>
+    <string name="labelSuperado">Niveau dépassé!</string>
+    <string name="labelNoSuperado">Niveau non dépassé</string>
+    <string name="labelAciertos">Hits</string>
+    <string name="labelFallos">Erreurs</string>
+    <string name="labelEnunciado">Déclaration</string>
+    <string name="labelResA">Réponse A: </string>
+    <string name="labelResB">Réponse B: </string>
+    <string name="labelResC">Réponse C: </string>
+    <string name="labelResD">Réponse D: </string>
+    <string name="radioResA">Rép A</string>
+    <string name="radioResB">Rép B</string>
+    <string name="radioResC">Rép C</string>
+    <string name="radioResD">Rép D</string>
+    <string name="labelNivel">Indiquez le niveau: </string>
+    <string name="labelAudio">Sélectionnez un fichier MP3</string>
+    <string name="labelCorrecta">Indiquez l\'option correcte: </string>
+    <string name="labelTiempo">Temps restant:</string>
+</resources>
