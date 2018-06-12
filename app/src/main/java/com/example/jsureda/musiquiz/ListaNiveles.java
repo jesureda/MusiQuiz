@@ -8,18 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class ListaNiveles extends AppCompatActivity {
-
     private ArrayList<Nivel> levels = new ArrayList<>();
     private ListView lista;
     private AdapterNivel adapter;
     private DatabaseHelper nivSQLite=null;
     boolean sonido,tema;
     MediaPlayer mp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

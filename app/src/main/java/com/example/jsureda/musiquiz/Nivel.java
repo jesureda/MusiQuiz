@@ -1,15 +1,9 @@
 package com.example.jsureda.musiquiz;
 
-
 public class Nivel {
 
     private String  nombre;
     private Integer id, orden, bloqueado, progreso;
-
-    public Nivel()
-    {
-        super();
-    }
 
     public Nivel(String nombre, Integer orden, Integer bloqueado, Integer progreso)
     {

@@ -14,7 +14,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-public class Preguntas extends AppCompatActivity implements FragBotones.OnFragmentInteractionListener {
+public class Preguntas extends AppCompatActivity
+        implements FragBotones.OnFragmentInteractionListener {
     TextView txtTiempo;
     ImageButton player;
     ArrayList<Pregunta> questions = new ArrayList<>();

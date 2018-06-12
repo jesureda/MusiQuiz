@@ -31,7 +31,7 @@ public class Resumen extends AppCompatActivity {
         if (progresoInicial<=progresoRonda)
         {
             resSQLite.actualizarNivel(nivel, 0, progresoRonda);
-            if ((progresoRonda>7) && (nivel<5)){
+            if ((progresoRonda>7) && (nivel<4)){
                 nivel++;
                 resSQLite.actualizarNivel(nivel, 0, 0);
                 txtResult.setText(R.string.labelSuperado);

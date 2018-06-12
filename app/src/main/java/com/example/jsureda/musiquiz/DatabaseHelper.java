@@ -8,19 +8,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    // Logcat tag
-    private static final String LOG = "DatabaseHelper";
+
     String crearNiveles, crearPreguntas;
     // Database Version
     private static final int DATABASE_VERSION = 1;
-
     // Database Name
     private static final String DATABASE_NAME = "Musiquiz.db";
-
-    // Table Names
-    private static final String TABLE_TODO = "niveles";
-    private static final String TABLE_TAG = "preguntas";
-
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -47,7 +40,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         crearPreguntas += "nivel INTEGER,";
         crearPreguntas += "FOREIGN KEY(nivel) REFERENCES niveles(_id));";
 
-        // crearPreguntas="CREATE TABLE `preguntas` (`_id` INTEGER PRIMARY KEY AUTOINCREMENT, `enunciado` TEXT, `refAudio` TEXT, `respuestaA` TEXT, `respuestaB` TEXT, `respuestaC` TEXT, `respuestaD` TEXT, `respuestaCorrecta` TEXT, `nivelFK` INTEGER);";
         // creating required tables
         db.execSQL(crearPreguntas);
         db.execSQL(crearNiveles);
@@ -102,16 +94,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sql += "('¿Qué actor da nombre a este tema?','clinteastwood.mp3','George Clooney','Brad Pitt','Clint Eastwood','Sean Connery','Clint Eastwood',2),";
 
         //Nivel 3
-        sql += "('Indica el título de la canción','aha-takeonme.mp3','Dirty Boots','Take On Me','Mad World','Fun Fun Fun','Take On Me',3),";
-        sql += "('¿En qué película suena este tema?','batmanbso.mp3','Rain man','Superman','Batman','Spiderman','Batman',3),";
-        sql += "('Identifica al cantante de este tema','billyjeans.mp3','Craig David','Michael Jackson','Bruno Mars','George Michael','Michael Jackson',3),";
-        sql += "('Identifica al cantante de este tema','dayparadise.mp3','Kurt Cobain','Bono','Gary Jules','Phil Collins','Phil Collins',3),";
-        sql += "('¿En qué película suena este tema?','ghostbusters.mp3','Casper','La Familia Adams','Los Cazafantasmas','Beetlejuice','Los Cazafantasmas',3),";
-        sql += "('¿De qué grupo es esta canción?','inmigrantsong.mp3','Led Zeppelin','Rolling Stones','Foo Fighters','Europe','Led Zeppelin',3),";
-        sql += "('¿En qué serie suena este tema?','wontgetfooledagain.mp3','Castle','NCIS','Caso Abierto','CSI','CSI',3),";
-        sql += "('Indica el título de la canción','imaman.mp3','Like a Virgin','I´m A Man','I´m Alive','Katchi','I´m A Man',3),";
-        sql += "('¿De qué grupo es esta canción?','wonderwall.mp3','Oasis','Metallica','Coldplay','U2','Oasis',3),";
-        sql += "('¿Qué actor da nombre a este tema?','clinteastwood.mp3','George Clooney','Brad Pitt','Clint Eastwood','Sean Connery','Clint Eastwood',3),";
+        sql += "('Indica el título de la canción','badmoon.mp3','Gas Gas','Bad Moon Rising','Imagine','Waka Waka','Bad Moon Rising',3),";
+        sql += "('¿De qué grupo es esta canción?','blackbetty.mp3.mp3','Led Zeppelin','Rolling Stones','Foo Fighters','Ram Jam','Ram Jam',3),";
+        sql += "('Identifica al cantante de este tema','borntobewild.mp3','David Hasselhoff','Prince','Steppenwolf','Ricky Martin','Steppenwolf',3),";
+        sql += "('¿De qué grupo es esta canción?','boulevard.mp3','Green Day','Metallica','Sum 41','REM','Green Day',3),";
+        sql += "('¿En qué película suena este tema?','getyourlove.mp3','Guardianes de la Galaxia','Los 4 Fantásticos','Green Lantern','DeadPool','Guardianes de la Galaxia',3),";
+        sql += "('Indica el título de la canción','hookedonafeeling.mp3','Hey Jude','Hooked On a Feeling','WonderWall','Otherside','Hooked On a Feeling',3),";
+        sql += "('¿De qué grupo es esta canción?','hotelcalifornia.mp3','Nirvana','Hotel California','Aerosmith','Maroon 5','Hotel California',3),";
+        sql += "('¿De qué grupo es esta canción?','iwantyouback.mp3','The Killers','The Clash','Talking Heads','Jackson 5','Jackson 5',3),";
+        sql += "('Ciudad da nombre a este grupo','peaceofmind.mp3','London','Madrid','Boston','Seattle','Boston',3),";
+        sql += "('Indica el título de la canción','youreallygotme.mp3','Physical','You Really Got Me','Uptown Funk','Le Freak','You Really Got Me',3),";
 
         //Nivel 4
         sql += "('Indica el título de la canción','aha-takeonme.mp3','Dirty Boots','Take On Me','Mad World','Fun Fun Fun','Take On Me',4),";
@@ -124,8 +116,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sql += "('Indica el título de la canción','imaman.mp3','Like a Virgin','I´m A Man','I´m Alive','Katchi','I´m A Man',4),";
         sql += "('¿De qué grupo es esta canción?','wonderwall.mp3','Oasis','Metallica','Coldplay','U2','Oasis',4),";
         sql += "('¿Qué actor da nombre a este tema?','clinteastwood.mp3','George Clooney','Brad Pitt','Clint Eastwood','Sean Connery','Clint Eastwood',4);";
+
+
         db.execSQL(sql);
-        //db.close();
     }
 
     public void actualizarNivel(int id, int bloqueado, int progreso) {
@@ -137,7 +130,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL(sql);
-        //db.close();
     }
 
     public void insertarPregunta(String[] datos) {
@@ -161,7 +153,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             niveles.add(new Nivel(cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4)));
         }
         cursor.close();
-        //db.close();
         return niveles;
     }
 

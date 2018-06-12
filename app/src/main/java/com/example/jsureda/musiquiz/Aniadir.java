@@ -40,6 +40,7 @@ public class Aniadir extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tema = getIntent().getBooleanExtra("tema", true);
+        sonido = getIntent().getBooleanExtra("sonido", true);
         if (tema) {
             setTheme(R.style.AppTheme);
         } else {setTheme(R.style.AppTheme2);}
@@ -52,6 +53,7 @@ public class Aniadir extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spnNivel.setAdapter(adapter);
+
         fabAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

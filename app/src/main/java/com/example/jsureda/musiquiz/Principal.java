@@ -12,12 +12,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
 import java.io.IOException;
 
 public class Principal extends AppCompatActivity {
     boolean exit = false;
-    ImageButton btnSalir, btnRanking, btnAjustes;
+    ImageButton btnSalir, btnAniadir, btnAjustes;
     Button btnJugar;
     private SharedPreferences prefs;
     boolean idioma, sonido, tema;
@@ -45,7 +44,7 @@ public class Principal extends AppCompatActivity {
                 finish();
             }
         });
-        btnRanking.setOnClickListener(new View.OnClickListener() {
+        btnAniadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (sonido) { sonidoBoton(); }
@@ -56,13 +55,7 @@ public class Principal extends AppCompatActivity {
                 finish();
             }
         });
-        btnSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-                System.exit(0);
-            }
-        });
+
         btnJugar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,11 +67,20 @@ public class Principal extends AppCompatActivity {
                 finish();
             }
         });
+
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (sonido) { sonidoBoton(); }
+                finish();
+                System.exit(0);
+            }
+        });
     }
 
     private void inicializarGUI() {
         btnSalir = (ImageButton) findViewById(R.id.imgBtnSalir);
-        btnRanking = (ImageButton) findViewById(R.id.imgBtnRanking);
+        btnAniadir = (ImageButton) findViewById(R.id.imgBtnRanking);
         btnAjustes = (ImageButton) findViewById(R.id.imgBtnAjustes);
         btnJugar = (Button) findViewById(R.id.btnJugar);
     }
@@ -91,14 +93,15 @@ public class Principal extends AppCompatActivity {
         if (idioma) {
             langu = "Español";
         } else {langu = "Inglés";}
-        Toast.makeText(getApplicationContext(), langu, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), langu, Toast.LENGTH_SHORT).show();
         sonido = prefs.getBoolean("pref1", true);
     }
 
     private void sonidoBoton() {
         mp = new MediaPlayer();
         try {
-            AssetFileDescriptor afd = getApplicationContext().getAssets().openFd("clickbutton.mp3");
+            AssetFileDescriptor afd =
+                    getApplicationContext().getAssets().openFd("clickbutton.mp3");
             mp.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(), afd.getLength());
             afd.close();
             mp.prepare();
@@ -128,6 +131,4 @@ public class Principal extends AppCompatActivity {
 
         }
     }
-
-
 }

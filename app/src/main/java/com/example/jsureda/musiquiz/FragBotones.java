@@ -99,6 +99,11 @@ public class FragBotones extends Fragment {
         return rootView;
     }
 
+    public interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        void onFragmentInteraction(String resultado);
+    }
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -116,10 +121,7 @@ public class FragBotones extends Fragment {
         mListener = null;
     }
 
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(String resultado);
-    }
+
     private void sonidoBoton() {
         mp = new MediaPlayer();
         try {
